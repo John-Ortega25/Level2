@@ -26,6 +26,7 @@ public class GuestBook implements ActionListener {
 		button1.addActionListener(this);
 		button2.addActionListener(this);
 		frame.pack();
+		
 	}
 
 	public String buildDisplayString(ArrayList<String> list) {
