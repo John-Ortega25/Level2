@@ -1,6 +1,7 @@
 package org.jointheleague.level2.leagueInvaders;
 
 import java.awt.Dimension;
+import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 
@@ -19,6 +20,7 @@ public class LeagueInvaders {
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setPreferredSize(new Dimension(WIDTH, HEIGHT));
+		frame.addKeyListener(gamePanel);
 		frame.pack();
 		gamePanel.startGame();
 
