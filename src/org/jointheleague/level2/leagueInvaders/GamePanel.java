@@ -1,5 +1,6 @@
 package org.jointheleague.level2.leagueInvaders;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -54,24 +55,29 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	public void drawMenuState(Graphics graphics) {
-
+		graphics.setColor(Color.BLUE);
+		graphics.fillRect(0,0, LeagueInvaders.WIDTH, LeagueInvaders.HEIGHT);
 	}
 
 	public void drawGameState(Graphics graphics) {
-
+		graphics.setColor(Color.BLACK);
+		graphics.fillRect(0, 0, LeagueInvaders.WIDTH, LeagueInvaders.HEIGHT);
 	}
 
 	public void drawEndState(Graphics graphics) {
-
+		graphics.setColor(Color.RED);
+		graphics.fillRect(0, 0, LeagueInvaders.WIDTH, LeagueInvaders.HEIGHT);
 	}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (currentState == MENU_STATE) {
+			System.out.println("Menu state");
 			updateMenuState();
 		} else if (currentState == GAME_STATE) {
+			System.out.println("Game State");
 			updateGameState();
 		} else if (currentState == END_STATE) {
+			System.out.println("Game State");
 			updateEndState();
 		}
 		// TODO Auto-generated method stub
@@ -90,6 +96,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 		System.out.println("Greetings");
+		if(currentState== MENU_STATE) {
+			currentState= GAME_STATE;
+		}
+		if (currentState > END_STATE) {
+			currentState= MENU_STATE;
+		}
 	}
 
 	@Override
