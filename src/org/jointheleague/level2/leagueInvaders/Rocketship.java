@@ -11,6 +11,7 @@ public class Rocketship extends GameObject{
 		// TODO Auto-generated constructor stub
 	}
 	public void update() {
+		super.update();
 		x=x+xSpeed;
 		y=y+ySpeed;
 		

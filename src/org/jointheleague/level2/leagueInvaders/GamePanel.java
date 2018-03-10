@@ -64,6 +64,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	public void updateGameState() {
 		manager.update();
+		manager.manageEnemies();
+		manager.checkCollision();
+		//manager.purgeObjects();
 
 	}
 
@@ -170,7 +173,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		
 		if (e.getKeyCode()==32) {
 			
-			manager.addProjectile( new Projectile(rocket.x, rocket.y, 10, 10));
+			manager.addProjectile( new Projectile(rocket.x+ rocket.width/2-5, rocket.y, 10, 10));
 		}
 	}
 	
