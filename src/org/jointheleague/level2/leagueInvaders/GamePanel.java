@@ -66,7 +66,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		manager.update();
 		manager.manageEnemies();
 		manager.checkCollision();
-		//manager.purgeObjects();
+		manager.purgeObjects();
 
 	}
 
