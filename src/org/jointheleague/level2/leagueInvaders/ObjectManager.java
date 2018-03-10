@@ -56,7 +56,7 @@ public class ObjectManager {
 		}
 	}
 
-	/*public void purgeObjects() {
+	public void purgeObjects() {
 
 		for (int i = 0; i < projectiles.size(); i++) {
 			boolean isAlive2 = projectiles.get(i).isAlive;
@@ -65,7 +65,7 @@ public class ObjectManager {
 				System.out.println("Dead");
 			}
 		}
-	}*/
+	}
 
 	public void checkCollision() {
 		for (Alien a : aliens) {
