@@ -24,6 +24,7 @@ public class LeagueInvaders {
 		frame.pack();
 		gamePanel.startGame();
 
+
 	}
 	public static void main(String[] args) {
 		LeagueInvaders game= new LeagueInvaders();

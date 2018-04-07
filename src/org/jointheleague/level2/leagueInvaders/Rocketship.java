@@ -17,20 +17,20 @@ public class Rocketship extends GameObject{
 		
 	}
 	public void draw(Graphics graphics) {
-		graphics.setColor(Color.BLUE);
-		graphics.fillRect(x, y, width, height);
+		graphics.drawImage(GamePanel.rocketImg, x, y, width, height, null);
+		
 	}
 	public void moveRight(){
-		xSpeed=5;
+		xSpeed=8;
 	}
 	public void moveLeft(){
-		xSpeed=-5;
+		xSpeed=-8;
 	}
 	public void moveUp(){
-		ySpeed=5;
+		ySpeed=8;
 	}
 	public void moveDown(){
-		ySpeed=-5;
+		ySpeed=-8;
 	}
 	public void stop(){
 		xSpeed=0;
