@@ -17,6 +17,7 @@ public class LeagueBreakout {
 	public void setUp() {
 		frame.add(gamePanel);
 		frame.setVisible(true);
+		// add more components
 	}
 	public static void main(String[] args) {
 		LeagueBreakout game= new LeagueBreakout();
