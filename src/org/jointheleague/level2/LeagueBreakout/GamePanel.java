@@ -11,7 +11,6 @@ import java.awt.event.KeyListener;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Timer timer;
 	Font titleFont;
@@ -19,12 +18,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Font finalFont;
 	Font finalFont2;
 	Font finalFont3;
-	final int MENU_STATE= 0;
-	final int GAME_STATE= 1;
-	final int END_STATE= 2;
-	int currentState= MENU_STATE;
-	
-	
+	final int MENU_STATE = 0;
+	final int GAME_STATE = 1;
+	final int END_STATE = 2;
+	int currentState = MENU_STATE;
+	Paddle paddle = new Paddle(200, 490, 100, 10);
+
 	public GamePanel() {
 		timer = new Timer(1000 / 60, this);
 		titleFont = new Font("Arial", Font.BOLD, 48);
@@ -34,10 +33,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		finalFont3 = new Font("Arial", Font.PLAIN, 24);
 	}
 
-	GameObject1 object = new GameObject1(10, 10, 100, 100);
+	
 
 	public void paintComponent(Graphics graphics) {
-		object.draw(graphics);
+		paddle.draw(graphics);
 		if (currentState == MENU_STATE) {
 			drawMenuState(graphics);
 		} else if (currentState == GAME_STATE) {
@@ -98,8 +97,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			else if (currentState == GAME_STATE) {
 				currentState = END_STATE;
 
-			}
-			else if (currentState == END_STATE) {
+			} else if (currentState == END_STATE) {
 				currentState = MENU_STATE;
 
 			}
@@ -120,9 +118,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+
 		repaint();
-		object.update();
+		paddle.update();
 	}
 
 }
