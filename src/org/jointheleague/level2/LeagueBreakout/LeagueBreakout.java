@@ -1,6 +1,8 @@
 package org.jointheleague.level2.LeagueBreakout;
 
 import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 
@@ -16,12 +18,18 @@ public class LeagueBreakout {
 
 	public void setUp() {
 		frame.add(gamePanel);
+		frame.setSize(WIDTH, HEIGHT);
 		frame.setVisible(true);
-		// add more components
-		// add another component
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setPreferredSize(new Dimension(WIDTH, HEIGHT));
+		frame.addKeyListener(gamePanel);
+		frame.pack();
+		gamePanel.startGame();
+
 	}
+
 	public static void main(String[] args) {
-		LeagueBreakout game= new LeagueBreakout();
+		LeagueBreakout game = new LeagueBreakout();
 		game.setUp();
 	}
 }
