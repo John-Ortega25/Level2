@@ -17,6 +17,17 @@ public class Paddle extends GameObject {
 		x = x + xSpeed;
 	}
 	
+	public void moveRight() {
+		xSpeed = 5;
+	}
+	
+	public void moveLeft() {
+		xSpeed = -5;
+	}
+	public void stop() {
+		xSpeed = 0;
+	}
+	
 	public void draw(Graphics graphics) {
 		graphics.setColor(Color.BLACK);
 		graphics.fillRect(x, y, width, height);

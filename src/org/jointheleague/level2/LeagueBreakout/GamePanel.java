@@ -107,12 +107,21 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 			}
 		}
+		paddle.update();
+		if(e.getKeyCode()== 39){
+			//moveRight
+			paddle.moveRight();
+		}
+		else if(e.getKeyCode()==37){
+			//moveLeft
+			paddle.moveLeft();
+		}
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-
+		paddle.stop();
 	}
 
 	@Override
