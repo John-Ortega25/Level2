@@ -83,7 +83,8 @@ public class ObjectManager {
 
 	public void checkCollision() {
 		int index = 0;
-	
+		index= index+0;
+		
 		for (Alien a : aliens) {
 			if (rocket2.collisionBox.intersects(a.collisionBox)) {
 				rocket2.isAlive = false;

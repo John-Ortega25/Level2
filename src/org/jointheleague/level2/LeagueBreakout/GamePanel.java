@@ -12,6 +12,10 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Timer timer;
 	Font titleFont;
 	Font titleFont2;

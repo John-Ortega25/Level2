@@ -1,7 +1,7 @@
 package org.jointheleague.level2.leagueInvaders;
 
 import java.awt.Dimension;
-import java.awt.event.KeyListener;
+
 
 import javax.swing.JFrame;
 

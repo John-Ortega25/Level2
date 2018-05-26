@@ -6,7 +6,7 @@ public class RandomCode {
 	
 	
 		
-	public int score (String answer, ArrayList listOfGuesses) {
+	public int score (String answer, ArrayList<String> listOfGuesses) {
 		int score=0;
 		for (int i = 0; i < listOfGuesses.size(); i++) {
 			if (listOfGuesses.get(i).equals(answer)) {
