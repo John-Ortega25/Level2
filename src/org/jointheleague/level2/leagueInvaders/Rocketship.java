@@ -1,6 +1,6 @@
 package org.jointheleague.level2.leagueInvaders;
 
-import java.awt.Color;
+
 import java.awt.Graphics;
 
 public class Rocketship extends GameObject{
