@@ -24,11 +24,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Font finalFont2;
 	Font finalFont3;
 	public static BufferedImage alienImg;
-    public static BufferedImage rocketImg;
-    public static BufferedImage bulletImg;
-    public static BufferedImage spaceImg;
-
-
+	public static BufferedImage rocketImg;
+	public static BufferedImage bulletImg;
+	public static BufferedImage spaceImg;
 
 	Rocketship rocket = new Rocketship(250, 700, 50, 50);
 	final int MENU_STATE = 0;
@@ -47,24 +45,23 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		finalFont2 = new Font("Arial", Font.BOLD, 24);
 		finalFont3 = new Font("Arial", Font.PLAIN, 24);
 
-		  try {
+		try {
 
-              alienImg = ImageIO.read(this.getClass().getResourceAsStream("alien.png"));
+			alienImg = ImageIO.read(this.getClass().getResourceAsStream("alien.png"));
 
-              rocketImg = ImageIO.read(this.getClass().getResourceAsStream("rocket.png"));
+			rocketImg = ImageIO.read(this.getClass().getResourceAsStream("rocket.png"));
 
-              bulletImg = ImageIO.read(this.getClass().getResourceAsStream("bullet.png"));
+			bulletImg = ImageIO.read(this.getClass().getResourceAsStream("bullet.png"));
 
-              spaceImg = ImageIO.read(this.getClass().getResourceAsStream("space.png"));
+			spaceImg = ImageIO.read(this.getClass().getResourceAsStream("space.png"));
 
-      } catch (IOException e) {
+		} catch (IOException e) {
 
-              // TODO Auto-generated catch block
+			// TODO Auto-generated catch block
 
-              e.printStackTrace();
+			e.printStackTrace();
 
-      }
-
+		}
 
 	}
 
@@ -144,7 +141,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void actionPerformed(ActionEvent e) {
 		if (currentState == MENU_STATE) {
 			updateMenuState();
-			
+
 		} else if (currentState == GAME_STATE) {
 
 			updateGameState();
@@ -167,8 +164,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
-		
+
 		if (e.getKeyCode() == 10) {
 
 			if (currentState == MENU_STATE) {
