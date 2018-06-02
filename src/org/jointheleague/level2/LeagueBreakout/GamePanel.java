@@ -28,6 +28,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	int currentState = MENU_STATE;
 	Paddle paddle = new Paddle(200, 490, 100, 10);
 	Block blocks = new Block(50, 80, 40, 40);
+	BlockManager manyBlocks = new BlockManager();
 
 	public GamePanel() {
 		timer = new Timer(1000 / 60, this);
@@ -43,6 +44,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void paintComponent(Graphics graphics) {
 		paddle.draw(graphics);
 		blocks.draw(graphics);
+		manyBlocks.draw(graphics);
 		if (currentState == MENU_STATE) {
 			drawMenuState(graphics);
 		} else if (currentState == GAME_STATE) {
