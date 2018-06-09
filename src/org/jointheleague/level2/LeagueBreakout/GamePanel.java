@@ -27,7 +27,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	final int END_STATE = 2;
 	int currentState = MENU_STATE;
 	Paddle paddle = new Paddle(200, 490, 100, 10);
-	Block blocks = new Block(50, 80, 40, 40);
 	BlockManager manyBlocks = new BlockManager();
 
 	public GamePanel() {
@@ -37,13 +36,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		finalFont = new Font("Arial", Font.PLAIN, 52);
 		finalFont2 = new Font("Arial", Font.BOLD, 24);
 		finalFont3 = new Font("Arial", Font.PLAIN, 24);
+		manyBlocks.blockCreator();
 	}
 
 	
 
 	public void paintComponent(Graphics graphics) {
 		paddle.draw(graphics);
-		blocks.draw(graphics);
 		manyBlocks.draw(graphics);
 		if (currentState == MENU_STATE) {
 			drawMenuState(graphics);
