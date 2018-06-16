@@ -36,7 +36,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		finalFont = new Font("Arial", Font.PLAIN, 52);
 		finalFont2 = new Font("Arial", Font.BOLD, 24);
 		finalFont3 = new Font("Arial", Font.PLAIN, 24);
-		manyBlocks.blockCreator();
+		//manyBlocks.rowOfBlock(40, );
+		manyBlocks.manyRowOfBlock(3);
+		
 	}
 
 	
