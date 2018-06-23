@@ -5,9 +5,9 @@ import java.awt.Graphics;
 
 public class BlockManager {
 	Block[] row = new Block[7];
-	Block[] row2= new Block[7];
-	Block[] row3= new Block[7];
-	
+	Block[] row2 = new Block[7];
+	Block[] row3 = new Block[7];
+
 	public BlockManager() {
 
 	}
@@ -26,13 +26,13 @@ public class BlockManager {
 
 		}
 	}
-	
+
 	public void manyRowOfBlock(int numOfRows) {
 		rowOfBlock(130, row);
 		rowOfBlock(180, row2);
 		rowOfBlock(230, row3);
 	}
-	
+
 	public void draw(Graphics graphics) {
 		for (int i = 0; i < row.length; i++) {
 			row[i].draw(graphics);

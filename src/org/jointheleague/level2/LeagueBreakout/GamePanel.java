@@ -12,10 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+
 	Timer timer;
 	Font titleFont;
 	Font titleFont2;
@@ -27,7 +24,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	final int END_STATE = 2;
 	int currentState = MENU_STATE;
 	ObjectManger manager = new ObjectManger();
-	
+
 	public GamePanel() {
 		timer = new Timer(1000 / 60, this);
 		titleFont = new Font("Arial", Font.BOLD, 48);
@@ -36,10 +33,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		finalFont2 = new Font("Arial", Font.BOLD, 24);
 		finalFont3 = new Font("Arial", Font.PLAIN, 24);
 		manager.rowOfBlock();
-		
-	}
 
-	
+	}
 
 	public void paintComponent(Graphics graphics) {
 		manager.draw(graphics);
@@ -87,13 +82,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
 		if (e.getKeyCode() == 10) {
 			if (currentState == MENU_STATE) {
 				currentState = GAME_STATE;
@@ -118,16 +111,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
 		manager.stopPaddle();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 
 		repaint();
-		if(currentState == GAME_STATE) {
+		if (currentState == GAME_STATE) {
 			manager.update();
 		}
 	}
