@@ -7,8 +7,8 @@ import javax.swing.JFrame;
 
 public class LeagueBreakout {
 	JFrame frame;
-	static final int HEIGHT = 500;
-	static final int WIDTH = 500;
+	public static final int HEIGHT = 500;
+	public static final int WIDTH = 500;
 	GamePanel gamePanel = new GamePanel();
 
 	public LeagueBreakout() {

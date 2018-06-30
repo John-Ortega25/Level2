@@ -7,7 +7,7 @@ public class ObjectManger {
 
 	Paddle paddle = new Paddle(200, 490, 100, 10);
 	BlockManager manyBlocks = new BlockManager();
-	Ball ball = new Ball(250, 250, 20, 20);
+	Ball ball = new Ball(20, 250, 20, 20);
 
 	public void rowOfBlock() {
 		manyBlocks.manyRowOfBlock(3);
@@ -23,6 +23,8 @@ public class ObjectManger {
 	public void update() {
 		ball.update();
 		paddle.update();
+		ball.changeYDirection();
+		ball.changeXDirection();
 	}
 
 	public void handlePaddleKeys(KeyEvent e) {

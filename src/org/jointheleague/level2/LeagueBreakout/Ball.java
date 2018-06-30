@@ -20,13 +20,13 @@ public class Ball extends GameObject {
 	}
 
 	public void changeXDirection() {
-		if (x == 500) {
+		if (LeagueBreakout.WIDTH == x || 0 == x) {
 			ballXSpeed = ballXSpeed * -1;
 		}
 	}
 
 	public void changeYDirection() {
-		if (y == 500) {
+		if (LeagueBreakout.HEIGHT == y || 0 == y) {
 			ballYSpeed = ballYSpeed * -1;
 		}
 	}
