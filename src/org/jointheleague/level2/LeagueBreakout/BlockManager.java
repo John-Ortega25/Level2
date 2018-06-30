@@ -40,4 +40,10 @@ public class BlockManager {
 			row3[i].draw(graphics);
 		}
 	}
+	
+	public void checkCollisions(Ball ball) {
+		if (ball.intersects(row[6])) {
+			System.out.println("anything");
+		}
+	}
 }

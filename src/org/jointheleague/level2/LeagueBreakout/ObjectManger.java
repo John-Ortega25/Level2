@@ -25,6 +25,7 @@ public class ObjectManger {
 		paddle.update();
 		ball.changeYDirection();
 		ball.changeXDirection();
+		manyBlocks.checkCollisions(ball);
 	}
 
 	public void handlePaddleKeys(KeyEvent e) {
@@ -38,4 +39,6 @@ public class ObjectManger {
 	public void stopPaddle() {
 		paddle.stop();
 	}
+	
+	
 }

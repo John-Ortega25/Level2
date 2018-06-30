@@ -120,6 +120,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		repaint();
 		if (currentState == GAME_STATE) {
 			manager.update();
+			
 		}
 	}
 
