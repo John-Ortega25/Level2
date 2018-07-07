@@ -30,5 +30,6 @@ public class Paddle extends GameObject {
 	public void draw(Graphics graphics) {
 		graphics.setColor(Color.BLACK);
 		graphics.fillRect(x, y, width, height);
+	
 	}
 }

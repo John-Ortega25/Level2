@@ -23,7 +23,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	final int GAME_STATE = 1;
 	final int END_STATE = 2;
 	int currentState = MENU_STATE;
-	ObjectManger manager = new ObjectManger();
+	ObjectManager manager = new ObjectManager();
 
 	public GamePanel() {
 		timer = new Timer(1000 / 60, this);
@@ -63,14 +63,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	public void drawEndState(Graphics graphics) {
-		graphics.setColor(Color.RED);
+		graphics.setColor(Color.BLUE);
 		graphics.fillRect(0, 0, LeagueBreakout.WIDTH, LeagueBreakout.HEIGHT);
 		graphics.setFont(finalFont);
 		graphics.setColor(Color.BLACK);
-		graphics.drawString("Game Over", 125, 100);
+		graphics.drawString("CONGRATS", 125, 100);
 		graphics.setFont(finalFont2);
 		graphics.setColor(Color.BLACK);
-		graphics.drawString("You destroyed 0 blocks!", 130, 200);
+		graphics.drawString("You destroyed all blocks!", 130, 200);
 		graphics.setFont(finalFont3);
 		graphics.setColor(Color.BLACK);
 		graphics.drawString("Press ENTER to restart", 120, 300);
@@ -97,6 +97,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				currentState = END_STATE;
 
 			} else if (currentState == END_STATE) {
+				
+				
+				manager = new ObjectManager();
+				manager.rowOfBlock();
+				
+				
 				currentState = MENU_STATE;
 
 			}
@@ -116,12 +122,16 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+
 		repaint();
 		if (currentState == GAME_STATE) {
 			manager.update();
-			
+			manager.checkPaddleCollision();
+			if (manager.ball.y == 500) {
+				currentState = END_STATE;
+				repaint();
+			}
 		}
+		repaint();
 	}
-
 }

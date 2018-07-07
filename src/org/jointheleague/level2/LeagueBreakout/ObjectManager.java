@@ -3,7 +3,7 @@ package org.jointheleague.level2.LeagueBreakout;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
-public class ObjectManger {
+public class ObjectManager {
 
 	Paddle paddle = new Paddle(200, 490, 100, 10);
 	BlockManager manyBlocks = new BlockManager();
@@ -40,5 +40,17 @@ public class ObjectManger {
 		paddle.stop();
 	}
 	
+	public void checkPaddleCollision() {
+		if (ball.intersects(paddle)) {
+			ball.ballYSpeed = ball.ballYSpeed * -1 ;
+			ball.y = 460;
+		}
+	}
 	
+	public void checkEndGame() {
+		ball.y = 500;
+	}
 }
+	
+	
+
