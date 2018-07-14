@@ -7,7 +7,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -22,8 +25,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	final int MENU_STATE = 0;
 	final int GAME_STATE = 1;
 	final int END_STATE = 2;
+	final int END_STATE2 = 2;
 	int currentState = MENU_STATE;
 	ObjectManager manager = new ObjectManager();
+	public static BufferedImage paddleImage;
 
 	public GamePanel() {
 		timer = new Timer(1000 / 60, this);
@@ -33,6 +38,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		finalFont2 = new Font("Arial", Font.BOLD, 24);
 		finalFont3 = new Font("Arial", Font.PLAIN, 24);
 		manager.rowOfBlock();
+
+		try {
+
+			paddleImage = ImageIO.read(this.getClass().getResourceAsStream("Paddle.jpg"));
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
 
 	}
 
@@ -44,6 +58,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			drawGameState(graphics);
 		} else if (currentState == END_STATE) {
 			drawEndState(graphics);
+		} else if (currentState == END_STATE2) {
+			drawEndState2(graphics);
 		}
 	}
 
@@ -75,6 +91,17 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		graphics.setColor(Color.BLACK);
 		graphics.drawString("Press ENTER to restart", 120, 300);
 	}
+	
+	public void drawEndState2(Graphics graphics) {
+		graphics.setColor(Color.RED);
+		graphics.fillRect(0, 0, LeagueBreakout.WIDTH, LeagueBreakout.HEIGHT);
+		graphics.setFont(finalFont);
+		graphics.setColor(Color.BLACK);
+		graphics.drawString("Try better next time", 35, 100);
+		graphics.setFont(finalFont3);
+		graphics.setColor(Color.BLACK);
+		graphics.drawString("Press ENTER to restart!", 120, 300);
+	}
 
 	public void startGame() {
 		timer.start();
@@ -90,21 +117,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		if (e.getKeyCode() == 10) {
 			if (currentState == MENU_STATE) {
 				currentState = GAME_STATE;
-
-			}
-
-			else if (currentState == GAME_STATE) {
-				currentState = END_STATE;
+			} else if (currentState == GAME_STATE) {
+				currentState = END_STATE2;
 
 			} else if (currentState == END_STATE) {
-				
-				
 				manager = new ObjectManager();
 				manager.rowOfBlock();
-				
-				
 				currentState = MENU_STATE;
-
 			}
 
 			if (currentState > END_STATE) {
@@ -123,12 +142,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		repaint();
 		if (currentState == GAME_STATE) {
 			manager.update();
 			manager.checkPaddleCollision();
-			if (manager.ball.y == 500) {
-				currentState = END_STATE;
+			if (manager.ball.y >= 500) {
+				currentState = END_STATE2;
 				repaint();
 			}
 		}

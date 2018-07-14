@@ -8,7 +8,7 @@ public class ObjectManager {
 	Paddle paddle = new Paddle(200, 490, 100, 10);
 	BlockManager manyBlocks = new BlockManager();
 	Ball ball = new Ball(20, 250, 20, 20);
-
+	
 	public void rowOfBlock() {
 		manyBlocks.manyRowOfBlock(3);
 	}
@@ -42,7 +42,7 @@ public class ObjectManager {
 	
 	public void checkPaddleCollision() {
 		if (ball.intersects(paddle)) {
-			ball.ballYSpeed = ball.ballYSpeed * -1 ;
+			ball.ballYSpeed = ball.ballYSpeed * -1;
 			ball.y = 460;
 		}
 	}

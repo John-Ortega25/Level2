@@ -46,17 +46,27 @@ public class BlockManager {
 	public void checkCollisions(Ball ball) {
 		for (int i = 0; i < row.length; i++) {
 			if (ball.intersects(row[i])) {
-				row[i].isAlive = false;
+				if (row[i].isAlive == true ) {
+					ball.ballXSpeed = ball.ballXSpeed * -1;
+					row[i].isAlive = false;
+				}
 			}
 		}
+		
 		for (int i = 0; i < row2.length; i++) {
 			if (ball.intersects(row2[i])) {
-				row2[i].isAlive = false;
+				if (row2[i].isAlive == true) {
+					ball.ballXSpeed = ball.ballXSpeed * -1;
+					row2[i].isAlive = false;
+				}
 			}
 		}
 		for (int i = 0; i < row3.length; i++) {
 			if (ball.intersects(row3[i])) {
-				row3[i].isAlive = false;
+				if (row3[i].isAlive == true) {
+					ball.ballXSpeed = ball.ballXSpeed * -1;
+					row3[i].isAlive = false;
+				}
 			}
 		}
 

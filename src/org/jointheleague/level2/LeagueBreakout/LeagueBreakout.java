@@ -2,7 +2,6 @@ package org.jointheleague.level2.LeagueBreakout;
 
 import java.awt.Dimension;
 
-
 import javax.swing.JFrame;
 
 public class LeagueBreakout {
