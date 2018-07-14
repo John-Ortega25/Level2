@@ -9,7 +9,7 @@ public class GameObject {
 	int width;
 	int height;
 	boolean isAlive;
-	Rectangle collisionBox;
+	private Rectangle collisionBox;
 
 	public GameObject(int x, int y, int width, int height) {
 		this.x = x;
@@ -28,5 +28,13 @@ public class GameObject {
 	public void draw(Graphics graphics) {
 		graphics.fillRect(x, y, 100, 100);
 	}
-
+	
+	public boolean intersects(GameObject object) {
+		if (collisionBox.intersects(object.collisionBox)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 }

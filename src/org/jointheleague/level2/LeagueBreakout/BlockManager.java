@@ -3,6 +3,8 @@ package org.jointheleague.level2.LeagueBreakout;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import apple.laf.JRSUIConstants.FrameOnly;
+
 public class BlockManager {
 	Block[] row = new Block[7];
 	Block[] row2 = new Block[7];
@@ -39,5 +41,24 @@ public class BlockManager {
 			row2[i].draw(graphics);
 			row3[i].draw(graphics);
 		}
+	}
+
+	public void checkCollisions(Ball ball) {
+		for (int i = 0; i < row.length; i++) {
+			if (ball.intersects(row[i])) {
+				row[i].isAlive = false;
+			}
+		}
+		for (int i = 0; i < row2.length; i++) {
+			if (ball.intersects(row2[i])) {
+				row2[i].isAlive = false;
+			}
+		}
+		for (int i = 0; i < row3.length; i++) {
+			if (ball.intersects(row3[i])) {
+				row3[i].isAlive = false;
+			}
+		}
+
 	}
 }
