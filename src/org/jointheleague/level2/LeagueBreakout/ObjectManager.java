@@ -2,13 +2,14 @@ package org.jointheleague.level2.LeagueBreakout;
 
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
+import java.util.Random;
 
 public class ObjectManager {
-
-	Paddle paddle = new Paddle(200, 490, 100, 10);
+	Random num = new Random();
+	Paddle paddle = new Paddle(200, 490, 90, 5);
 	BlockManager manyBlocks = new BlockManager();
-	Ball ball = new Ball(20, 250, 20, 20);
-	
+	Ball ball = new Ball(20, num.nextInt(250), 20, 20);
+
 	public void rowOfBlock() {
 		manyBlocks.manyRowOfBlock(3);
 	}
@@ -39,18 +40,20 @@ public class ObjectManager {
 	public void stopPaddle() {
 		paddle.stop();
 	}
-	
+
 	public void checkPaddleCollision() {
+
 		if (ball.intersects(paddle)) {
 			ball.ballYSpeed = ball.ballYSpeed * -1;
 			ball.y = 460;
 		}
 	}
-	
-	public void checkEndGame() {
-		ball.y = 500;
+
+	public boolean checkWonGame() {
+		if (manyBlocks.checkIfYouWon() == true) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
-	
-	
-

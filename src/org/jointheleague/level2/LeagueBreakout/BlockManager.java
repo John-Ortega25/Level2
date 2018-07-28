@@ -71,4 +71,13 @@ public class BlockManager {
 		}
 
 	}
+	
+	public boolean checkIfYouWon() {
+		for (int i = 0; i <row.length; i++) {
+			if (row[i].isAlive == false && row2[i].isAlive == false && row3[i].isAlive == false) {
+				return true;
+			}		
+		} 
+			return false;
+	}
 }

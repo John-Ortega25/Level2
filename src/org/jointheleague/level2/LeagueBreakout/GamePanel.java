@@ -24,8 +24,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Font finalFont3;
 	final int MENU_STATE = 0;
 	final int GAME_STATE = 1;
-	final int END_STATE = 2;
-	final int END_STATE2 = 2;
+	final int END_STATEWON = 2;
+	final int END_STATELOST = 3;
 	int currentState = MENU_STATE;
 	ObjectManager manager = new ObjectManager();
 	public static BufferedImage paddleImage;
@@ -49,6 +49,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 
 	}
+	
+	public void restartGame() {
+		manager = new ObjectManager();
+		manager.rowOfBlock();
+		currentState = MENU_STATE;
+	}
 
 	public void paintComponent(Graphics graphics) {
 		manager.draw(graphics);
@@ -56,10 +62,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			drawMenuState(graphics);
 		} else if (currentState == GAME_STATE) {
 			drawGameState(graphics);
-		} else if (currentState == END_STATE) {
-			drawEndState(graphics);
-		} else if (currentState == END_STATE2) {
-			drawEndState2(graphics);
+		} else if (currentState == END_STATEWON) {
+			drawEndStateWon(graphics);
+		} else if (currentState == END_STATELOST) {
+			drawEndStateLost(graphics);
 		}
 	}
 
@@ -78,7 +84,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		graphics.setColor(Color.WHITE);
 	}
 
-	public void drawEndState(Graphics graphics) {
+	public void drawEndStateWon(Graphics graphics) {
 		graphics.setColor(Color.BLUE);
 		graphics.fillRect(0, 0, LeagueBreakout.WIDTH, LeagueBreakout.HEIGHT);
 		graphics.setFont(finalFont);
@@ -92,7 +98,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		graphics.drawString("Press ENTER to restart", 120, 300);
 	}
 	
-	public void drawEndState2(Graphics graphics) {
+	public void drawEndStateLost(Graphics graphics) {
 		graphics.setColor(Color.RED);
 		graphics.fillRect(0, 0, LeagueBreakout.WIDTH, LeagueBreakout.HEIGHT);
 		graphics.setFont(finalFont);
@@ -118,17 +124,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			if (currentState == MENU_STATE) {
 				currentState = GAME_STATE;
 			} else if (currentState == GAME_STATE) {
-				currentState = END_STATE2;
+				currentState = END_STATELOST;
 
-			} else if (currentState == END_STATE) {
-				manager = new ObjectManager();
-				manager.rowOfBlock();
-				currentState = MENU_STATE;
+			} else if (currentState == END_STATEWON) {
+				restartGame();
 			}
 
-			if (currentState > END_STATE) {
-				currentState = MENU_STATE;
-
+			if (currentState == END_STATELOST) {
+				restartGame();
 			}
 		}
 		manager.handlePaddleKeys(e);
@@ -146,7 +149,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			manager.update();
 			manager.checkPaddleCollision();
 			if (manager.ball.y >= 500) {
-				currentState = END_STATE2;
+				currentState = END_STATELOST;
+				repaint();
+			}
+			if (manager.checkWonGame() == true) {
+				currentState = END_STATEWON;
 				repaint();
 			}
 		}
