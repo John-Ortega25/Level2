@@ -9,6 +9,7 @@ public class BlockManager {
 	Block[] row = new Block[7];
 	Block[] row2 = new Block[7];
 	Block[] row3 = new Block[7];
+	
 
 	public BlockManager() {
 
@@ -48,7 +49,7 @@ public class BlockManager {
 			if (ball.intersects(row[i])) {
 				if (row[i].isAlive == true ) {
 					ball.ballXSpeed = ball.ballXSpeed * -1;
-					row[i].isAlive = false;
+					row[i].wasHit(); 
 				}
 			}
 		}
@@ -57,7 +58,7 @@ public class BlockManager {
 			if (ball.intersects(row2[i])) {
 				if (row2[i].isAlive == true) {
 					ball.ballXSpeed = ball.ballXSpeed * -1;
-					row2[i].isAlive = false;
+					row2[i].wasHit();
 				}
 			}
 		}
@@ -65,7 +66,7 @@ public class BlockManager {
 			if (ball.intersects(row3[i])) {
 				if (row3[i].isAlive == true) {
 					ball.ballXSpeed = ball.ballXSpeed * -1;
-					row3[i].isAlive = false;
+					row3[i].wasHit();
 				}
 			}
 		}
