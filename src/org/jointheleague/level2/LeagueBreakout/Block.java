@@ -8,7 +8,7 @@ public class Block extends GameObject {
 	Color firstTimeHit = Color.GREEN;
 	Color secondTimeHit = Color.BLUE;
 	Color blockColor = Color.RED;
-	
+
 	public Block(int x, int y, int width, int height) {
 		super(x, y, width, height);
 	}
@@ -20,22 +20,21 @@ public class Block extends GameObject {
 	public void draw(Graphics graphics) {
 		if (isAlive == true) {
 			graphics.setColor(blockColor);
-			graphics.fillRect(x, y, width, height);	
+			graphics.fillRect(x, y, width, height);
 		}
 	}
-	
+
 	public void wasHit() {
+		numTimesHit = numTimesHit + 1;
 		if (numTimesHit == 1) {
 			blockColor = firstTimeHit;
-			numTimesHit = numTimesHit + 1;
 		}
-		
-		if(numTimesHit == 2) {
-			firstTimeHit = secondTimeHit;
-			numTimesHit = numTimesHit + 1;
+
+		else if (numTimesHit == 2) {
+			blockColor = secondTimeHit;
 		}
-		
-		if (numTimesHit == 3) {
+
+		else if (numTimesHit == 3) {
 			isAlive = false;
 		}
 	}

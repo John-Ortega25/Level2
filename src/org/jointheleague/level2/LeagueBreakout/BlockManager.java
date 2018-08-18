@@ -9,7 +9,6 @@ public class BlockManager {
 	Block[] row = new Block[7];
 	Block[] row2 = new Block[7];
 	Block[] row3 = new Block[7];
-	
 
 	public BlockManager() {
 
@@ -47,13 +46,13 @@ public class BlockManager {
 	public void checkCollisions(Ball ball) {
 		for (int i = 0; i < row.length; i++) {
 			if (ball.intersects(row[i])) {
-				if (row[i].isAlive == true ) {
+				if (row[i].isAlive == true) {
 					ball.ballXSpeed = ball.ballXSpeed * -1;
-					row[i].wasHit(); 
+					row[i].wasHit();
 				}
 			}
 		}
-		
+
 		for (int i = 0; i < row2.length; i++) {
 			if (ball.intersects(row2[i])) {
 				if (row2[i].isAlive == true) {
@@ -72,13 +71,13 @@ public class BlockManager {
 		}
 
 	}
-	
+
 	public boolean checkIfYouWon() {
-		for (int i = 0; i <row.length; i++) {
+		for (int i = 0; i < row.length; i++) {
 			if (row[i].isAlive == true || row2[i].isAlive == true || row3[i].isAlive == true) {
 				return false;
-			}		
-		} 
-			return true;
+			}
+		}
+		return true;
 	}
 }
