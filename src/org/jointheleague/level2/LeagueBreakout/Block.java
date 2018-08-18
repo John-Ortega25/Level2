@@ -4,10 +4,10 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Block extends GameObject {
-	int numTimesHit = 0;
-	Color firstTimeHit = Color.GREEN;
-	Color secondTimeHit = Color.BLUE;
-	Color blockColor = Color.RED;
+	private int numTimesHit = 0;
+	private Color firstTimeHit = Color.GREEN;
+	private Color secondTimeHit = Color.BLUE;
+	private Color blockColor = Color.RED;
 
 	public Block(int x, int y, int width, int height) {
 		super(x, y, width, height);
