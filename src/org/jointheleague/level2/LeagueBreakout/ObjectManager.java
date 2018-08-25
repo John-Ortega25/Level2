@@ -50,10 +50,6 @@ public class ObjectManager {
 	}
 
 	public boolean checkWonGame() {
-		if (manyBlocks.checkIfYouWon() == true) {
-			return true;
-		} else {
-			return false;
-		}
+		return manyBlocks.checkIfYouWon();
 	}
 }

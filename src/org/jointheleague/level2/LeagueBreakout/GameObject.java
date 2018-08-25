@@ -28,12 +28,11 @@ public class GameObject {
 	public void draw(Graphics graphics) {
 		graphics.fillRect(x, y, 100, 100);
 	}
-	
+
 	public boolean intersects(GameObject object) {
 		if (collisionBox.intersects(object.collisionBox)) {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}

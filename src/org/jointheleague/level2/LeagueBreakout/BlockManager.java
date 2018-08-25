@@ -1,9 +1,6 @@
 package org.jointheleague.level2.LeagueBreakout;
 
-import java.awt.Color;
 import java.awt.Graphics;
-
-import apple.laf.JRSUIConstants.FrameOnly;
 
 public class BlockManager {
 	Block[] row = new Block[7];
@@ -43,11 +40,20 @@ public class BlockManager {
 		}
 	}
 
+	public void intersectTopOrBottom(Ball ball, Block block) {
+		if (ball.x >= block.x && ball.x <= block.x + block.width) {
+			ball.ballYSpeed = ball.ballYSpeed * -1;
+		} else {
+			ball.ballXSpeed = ball.ballXSpeed * -1;
+		}
+	}
+
 	public void checkCollisions(Ball ball) {
 		for (int i = 0; i < row.length; i++) {
 			if (ball.intersects(row[i])) {
 				if (row[i].isAlive == true) {
-					ball.ballXSpeed = ball.ballXSpeed * -1;
+					intersectTopOrBottom(ball, row[i]);
+					// ball.ballXSpeed = ball.ballXSpeed * -1;
 					row[i].wasHit();
 				}
 			}
