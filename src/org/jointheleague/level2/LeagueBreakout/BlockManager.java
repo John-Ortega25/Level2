@@ -43,8 +43,10 @@ public class BlockManager {
 	public void intersectTopOrBottom(Ball ball, Block block) {
 		if (ball.x >= block.x && ball.x <= block.x + block.width) {
 			ball.ballYSpeed = ball.ballYSpeed * -1;
+			System.out.println("Changing y direction");
 		} else {
 			ball.ballXSpeed = ball.ballXSpeed * -1;
+			System.out.println("Changing x direction");
 		}
 	}
 
@@ -62,7 +64,8 @@ public class BlockManager {
 		for (int i = 0; i < row2.length; i++) {
 			if (ball.intersects(row2[i])) {
 				if (row2[i].isAlive == true) {
-					ball.ballXSpeed = ball.ballXSpeed * -1;
+					intersectTopOrBottom(ball, row2[i]);
+					// ball.ballXSpeed = ball.ballXSpeed * -1;
 					row2[i].wasHit();
 				}
 			}
@@ -70,7 +73,8 @@ public class BlockManager {
 		for (int i = 0; i < row3.length; i++) {
 			if (ball.intersects(row3[i])) {
 				if (row3[i].isAlive == true) {
-					ball.ballXSpeed = ball.ballXSpeed * -1;
+					intersectTopOrBottom(ball, row3[i]);
+					// ball.ballXSpeed = ball.ballXSpeed * -1;
 					row3[i].wasHit();
 				}
 			}

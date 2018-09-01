@@ -30,10 +30,6 @@ public class GameObject {
 	}
 
 	public boolean intersects(GameObject object) {
-		if (collisionBox.intersects(object.collisionBox)) {
-			return true;
-		} else {
-			return false;
-		}
+		return collisionBox.intersects(object.collisionBox);
 	}
 }

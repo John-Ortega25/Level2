@@ -49,7 +49,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 
 	}
-	
+
 	public void restartGame() {
 		manager = new ObjectManager();
 		manager.rowOfBlock();
@@ -97,7 +97,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		graphics.setColor(Color.BLACK);
 		graphics.drawString("Press ENTER to restart", 120, 300);
 	}
-	
+
 	public void drawEndStateLost(Graphics graphics) {
 		graphics.setColor(Color.RED);
 		graphics.fillRect(0, 0, LeagueBreakout.WIDTH, LeagueBreakout.HEIGHT);
