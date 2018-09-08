@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Paddle extends GameObject {
-	int xSpeed;
+	int xSpeed = 3;
 
 	public Paddle(int x, int y, int width, int height) {
 		super(x, y, width, height);

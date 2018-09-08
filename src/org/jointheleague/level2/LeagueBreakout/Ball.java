@@ -1,5 +1,8 @@
 package org.jointheleague.level2.LeagueBreakout;
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -30,6 +33,7 @@ public class Ball extends GameObject {
 	}
 
 	public void draw(Graphics graphics) {
+		graphics.setColor(Color.BLACK);
 		graphics.fillOval(x, y, width, height);
 		graphics.setColor(Color.BLACK);
 	}
