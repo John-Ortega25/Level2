@@ -22,19 +22,13 @@ public class GameObject {
 
 	public void update() {
 		collisionBox.setBounds(x, y, width, height);
-
 	}
 
 	public void draw(Graphics graphics) {
 		graphics.fillRect(x, y, 100, 100);
 	}
-	
+
 	public boolean intersects(GameObject object) {
-		if (collisionBox.intersects(object.collisionBox)) {
-			return true;
-		}
-		else {
-			return false;
-		}
+		return collisionBox.intersects(object.collisionBox);
 	}
 }

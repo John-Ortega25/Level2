@@ -18,7 +18,6 @@ public class ObjectManager {
 		paddle.draw(graphics);
 		manyBlocks.draw(graphics);
 		ball.draw(graphics);
-
 	}
 
 	public void update() {
@@ -50,10 +49,6 @@ public class ObjectManager {
 	}
 
 	public boolean checkWonGame() {
-		if (manyBlocks.checkIfYouWon() == true) {
-			return true;
-		} else {
-			return false;
-		}
+		return manyBlocks.checkIfYouWon();
 	}
 }

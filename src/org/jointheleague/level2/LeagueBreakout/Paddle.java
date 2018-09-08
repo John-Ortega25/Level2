@@ -30,6 +30,6 @@ public class Paddle extends GameObject {
 	public void draw(Graphics graphics) {
 		graphics.setColor(Color.BLACK);
 		graphics.drawImage(GamePanel.paddleImage, x, y, width, height, null);
-	
+
 	}
 }
