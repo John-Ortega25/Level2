@@ -58,7 +58,6 @@ public class BlockManager {
 
 		for (int i = 0; i < row2.length; i++) {
 			if (ball.intersects(row2[i])) {
-				System.out.println();
 				if (row2[i].isAlive == true) {
 					intersectTopOrBottom(ball, row2[i]);
 					row2[i].wasHit();

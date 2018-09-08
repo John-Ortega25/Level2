@@ -1,4 +1,6 @@
 package org.jointheleague.level2.LeagueBreakout;
+
+import java.awt.Color;
 import java.awt.Graphics;
 
 public class Ball extends GameObject {
@@ -29,5 +31,6 @@ public class Ball extends GameObject {
 
 	public void draw(Graphics graphics) {
 		graphics.fillOval(x, y, width, height);
+		graphics.setColor(Color.BLACK);
 	}
 }
