@@ -144,7 +144,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
 		if (currentState == GAME_STATE) {
 			manager.update();
 			manager.checkPaddleCollision();

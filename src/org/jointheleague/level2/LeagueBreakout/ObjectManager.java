@@ -18,7 +18,6 @@ public class ObjectManager {
 		paddle.draw(graphics);
 		manyBlocks.draw(graphics);
 		ball.draw(graphics);
-
 	}
 
 	public void update() {
