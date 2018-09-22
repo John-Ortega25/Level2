@@ -3,8 +3,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Ball extends GameObject {
-	int ballXSpeed = 5;
-	int ballYSpeed = 5;
+	int ballXSpeed = 2;
+	int ballYSpeed = 2;
 
 	public Ball(int x, int y, int width, int height) {
 		super(x, y, width, height);

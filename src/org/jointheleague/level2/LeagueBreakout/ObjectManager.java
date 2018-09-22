@@ -8,7 +8,7 @@ public class ObjectManager {
 	Random num = new Random();
 	Paddle paddle = new Paddle(200, 490, 90, 5);
 	BlockManager manyBlocks = new BlockManager();
-	Ball ball = new Ball(20, num.nextInt(250), 20, 20);
+	Ball ball = new Ball(20, 20, 20, 20);
 
 	public void rowOfBlock() {
 		manyBlocks.manyRowOfBlock(3);

@@ -39,9 +39,9 @@ public class BlockManager {
 	}
 
 	public void intersectTopOrBottom(Ball ball, Block block) {
-		if (ball.x >= block.x && ball.x <= block.x + block.width) {
+		if (ball.x + ball.width > block.x && ball.x < block.x + block.width) {
 			ball.ballYSpeed = ball.ballYSpeed * -1;
-		} else {
+		} else if (ball.y < block.y + block.height && ball.y > block.y) {
 			ball.ballXSpeed = ball.ballXSpeed * -1;
 		}
 	}
