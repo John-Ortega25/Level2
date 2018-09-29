@@ -1,10 +1,11 @@
 package org.jointheleague.level2.LeagueBreakout;
+
 import java.awt.Color;
 import java.awt.Graphics;
 
 public class Ball extends GameObject {
-	int ballXSpeed = 2;
-	int ballYSpeed = 2;
+	int ballXSpeed = 5;
+	int ballYSpeed = 5;
 
 	public Ball(int x, int y, int width, int height) {
 		super(x, y, width, height);
