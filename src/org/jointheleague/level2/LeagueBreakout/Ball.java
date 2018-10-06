@@ -18,13 +18,13 @@ public class Ball extends GameObject {
 	}
 
 	public void changeXDirection() {
-		if (LeagueBreakout.WIDTH == x || 0 == x) {
+		if (LeagueBreakout.WIDTH == x || 0 >= x) {
 			ballXSpeed = ballXSpeed * -1;
 		}
 	}
 
 	public void changeYDirection() {
-		if (LeagueBreakout.HEIGHT == y || 0 == y) {
+		if (LeagueBreakout.HEIGHT == y || 0 >= y) {
 			ballYSpeed = ballYSpeed * -1;
 		}
 	}

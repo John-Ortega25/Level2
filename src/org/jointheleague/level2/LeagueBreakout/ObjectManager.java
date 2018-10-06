@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class ObjectManager {
 	Random num = new Random();
-	int ballStartingPosition = num.nextInt(250) + 50;
+	int ballStartingPosition = num.nextInt(100)+50;
 	Paddle paddle = new Paddle(200, 490, 90, 5);
 	BlockManager manyBlocks = new BlockManager();
 	Ball ball = new Ball(20, ballStartingPosition, 20, 20);
