@@ -78,6 +78,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		graphics.setFont(titleFont2);
 		graphics.setColor(Color.RED);
 		graphics.drawString("Press ENTER to start", 100, 300);
+		graphics.drawString("Use LEFT and RIGHT arrow keys to move", 5, 400);
 	}
 
 	public void drawGameState(Graphics graphics) {
