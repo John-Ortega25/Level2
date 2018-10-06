@@ -6,9 +6,10 @@ import java.util.Random;
 
 public class ObjectManager {
 	Random num = new Random();
+	int ballStartingPosition = num.nextInt(250) + 50;
 	Paddle paddle = new Paddle(200, 490, 90, 5);
 	BlockManager manyBlocks = new BlockManager();
-	Ball ball = new Ball(20, num.nextInt(250), 20, 20);
+	Ball ball = new Ball(20, ballStartingPosition, 20, 20);
 
 	public void rowOfBlock() {
 		manyBlocks.manyRowOfBlock(3);
@@ -18,7 +19,6 @@ public class ObjectManager {
 		ball.draw(graphics);
 		paddle.draw(graphics);
 		manyBlocks.draw(graphics);
-		//ball.draw(graphics);
 	}
 
 	public void update() {

@@ -38,11 +38,17 @@ public class BlockManager {
 		}
 	}
 
-	public void intersectTopOrBottom(Ball ball, Block block) {
-		if (ball.x >= block.x && ball.x <= block.x + block.width) {
+	public void intersectTopOrBottomOrSides(Ball ball, Block block) {
+		int middleWidthBall = ball.x + ball.width / 2;
+		int middleHeightBall = ball.y + ball.height / 2;
+
+		if (middleWidthBall >= block.x && middleWidthBall <= block.x + block.width) {
 			ball.ballYSpeed = ball.ballYSpeed * -1;
+		} else if (middleHeightBall >= block.y && ball.y <= block.y + block.height) {
+			ball.ballXSpeed = ball.ballXSpeed * -1;
 		} else {
 			ball.ballXSpeed = ball.ballXSpeed * -1;
+			ball.ballYSpeed = ball.ballYSpeed * -1;
 		}
 	}
 
@@ -50,7 +56,7 @@ public class BlockManager {
 		for (int i = 0; i < row.length; i++) {
 			if (ball.intersects(row[i])) {
 				if (row[i].isAlive == true) {
-					intersectTopOrBottom(ball, row[i]);
+					intersectTopOrBottomOrSides(ball, row[i]);
 					row[i].wasHit();
 				}
 			}
@@ -59,7 +65,7 @@ public class BlockManager {
 		for (int i = 0; i < row2.length; i++) {
 			if (ball.intersects(row2[i])) {
 				if (row2[i].isAlive == true) {
-					intersectTopOrBottom(ball, row2[i]);
+					intersectTopOrBottomOrSides(ball, row2[i]);
 					row2[i].wasHit();
 				}
 			}
@@ -67,7 +73,7 @@ public class BlockManager {
 		for (int i = 0; i < row3.length; i++) {
 			if (ball.intersects(row3[i])) {
 				if (row3[i].isAlive == true) {
-					intersectTopOrBottom(ball, row3[i]);
+					intersectTopOrBottomOrSides(ball, row3[i]);
 					row3[i].wasHit();
 				}
 			}
